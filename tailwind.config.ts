@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -52,22 +53,24 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // PRD specific named colors, mapped to CSS vars or direct values
+        // 'background' is already hsl(var(--background))
+        // 'surface' is card.DEFAULT -> hsl(var(--card))
+        primaryText: 'hsl(var(--foreground))', // maps to #212529 via --foreground CSS var
+        secondaryText: 'hsl(var(--muted-foreground))', // maps to #878A99 via --muted-foreground CSS var
+        // 'accentBlue' is primary.DEFAULT -> hsl(var(--primary))
+        accentLink: '#0000EE', // PRD: accentLink direct hex value
+
+        // Removed sidebar colors as not in PRD
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
