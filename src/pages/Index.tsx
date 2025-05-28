@@ -1,14 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import LoginForm from '../components/Login/LoginForm';
 
-const Index = () => {
+/**
+ * IndexPage serves as the main login page for the application.
+ * As per the project requirements, this page displays a responsive login screen.
+ * It utilizes MainAppLayout for the overall page structure (e.g., background, centering)
+ * and the LoginForm component for the actual login form interface.
+ * The LoginForm component itself is styled according to the 'mainContent' layout requirements,
+ * including background, padding, shadow, and width constraints.
+ */
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MainAppLayout>
+      {/* 
+        The LoginForm component is responsible for rendering all login elements
+        and adheres to the main content layout requirements specified in the project.
+        Its styling (bg-card, p-6, shadow-md, rounded-lg, w-full max-w-xs)
+        matches the 'mainContent' definition from Layout Requirements.
+      */}
+      <LoginForm />
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default IndexPage;
